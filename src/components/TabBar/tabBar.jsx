@@ -1,4 +1,5 @@
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { AtTabBar } from 'taro-ui'
 import "taro-ui/dist/style/components/tab-bar.scss";
 import "taro-ui/dist/style/components/badge.scss";
@@ -6,9 +7,24 @@ import './tarBar.css'
 
 
 export default function TabBar(props) {
-  const data = {
 
+  function switchTab(value) {
+    switch(value) {
+      case 0:
+        Taro.reLaunch({
+          url: '/pages/index/index'
+        })
+        break;
+      case 2:
+        Taro.reLaunch({
+          url: '/pages/my/my'
+        })
+        break;
+      default:
+        break;
+    }
   }
+
   return (
     <View className='tabBar'>
       <AtTabBar
@@ -20,6 +36,8 @@ export default function TabBar(props) {
           { title: '云村' },
           { title: '电台' },
         ]}
+        onClick={switchTab.bind(this)}
+        current={props.current}
       />
     </View>
   );

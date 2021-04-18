@@ -5,11 +5,6 @@ import TabBar from '../../components/TabBar/tabBar'
 
 
 export default class My extends Component {
-
-  // Config = {
-  //   navigationBarTitleText: "网易云音乐"
-  // };
-
   constructor(props) {
     super(props)
     this.state = {

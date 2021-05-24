@@ -1,5 +1,5 @@
 const getBaseUrl = (url) => {
-  let BASE_URL = 'http://musicapi.leanapp.cn';
+  let BASE_URL = 'http://localhost:3000';
   if (process.env.NODE_ENV === 'development') {
     //开发环境 - 根据请求不同返回不同的BASE_URL
     if (url.includes('http')) {

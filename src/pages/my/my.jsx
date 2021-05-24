@@ -1,6 +1,6 @@
 import { Component } from "react"
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 import TabBar from '../../components/TabBar/tabBar'
 
 
@@ -21,7 +21,13 @@ export default class My extends Component {
   render() {
     return (
       <View>
-        
+        <View>
+          <View className='header'>
+            <Image 
+              src={``}
+            />
+          </View>
+        </View>
         <TabBar current={this.state.current}/>
       </View>
     )

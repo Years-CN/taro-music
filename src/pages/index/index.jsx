@@ -5,6 +5,7 @@ import './index.css'
 import http from '../../servers/http'
 import { AtDivider } from 'taro-ui'
 import Recommend from './Recommend'
+import Ball from './ball'
 import TabBar from '../../components/TabBar/tabBar'
 
 
@@ -41,6 +42,7 @@ export default class Index extends Component {
         <View className="header">
           <Text></Text>
         </View>
+        <Ball />
         <AtDivider/>
         <Recommend recommend_list={this.state.recommend_list}/>
         <TabBar current={this.state.current}/>

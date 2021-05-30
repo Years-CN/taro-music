@@ -16,6 +16,7 @@ export default class Index extends Component {
       recommend_list: [{1:2}],
       num: 0,
       current: 0,
+      ballList: [],
     }
   }
 
@@ -26,6 +27,12 @@ export default class Index extends Component {
     http.get('/personalized?limit=6').then(res => {
       self.setState({
         recommend_list: res.result,
+      })
+    })
+
+    http.get('/homepage/dragon/ball').then(res => {
+      this.setState({
+        ballList: res.data
       })
     })
   }
@@ -42,8 +49,8 @@ export default class Index extends Component {
         <View className="header">
           <Text></Text>
         </View>
-        <Ball />
-        <AtDivider/>
+        <Ball ballList={this.state.ballList}/>
+        {/* <AtDivider/> */}
         <Recommend recommend_list={this.state.recommend_list}/>
         <TabBar current={this.state.current}/>
       </View>

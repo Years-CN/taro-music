@@ -1,20 +1,25 @@
 import { View, Image, Text, ScrollView } from '@tarojs/components'
-import { useState, useEffect } from 'react'
-import http from '../../servers/http'
-
 
 export default function Ball(props) {
-  
-  useEffect(() => {
-    http.get('/homepage/dragon/ball').then(res => {
-      console.log(res);
-    })
-  })
+  const scrollStyle = {
+    display: 'flex',
+    height: '80px',
+    margin: '5px 0'
+  }
 
   return (
-    <View>
-      <ScrollView>
-
+    <View style="margin:0 5px">
+      <ScrollView style={scrollStyle} scrollX enableFlex='true'>
+      { 
+        props.ballList.map((item, index) =>
+          <View key={index} style="text-align:center;">
+            <View style="background:red;border-radius:50%;margin:0 10px;display:flex">
+              <Image src={item.iconUrl} style="width:50px;height:50px;"/>
+            </View>
+            <Text style="font-size:0.8rem;">{ item.name }</Text>
+          </View>
+        )
+      }
       </ScrollView>
     </View>
   );

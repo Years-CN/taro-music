@@ -9,7 +9,7 @@ export default function Recommend(props) {
     margin: '5px 0'
   }
   return (
-    <View className="recommend" style='margin:20px 10px;'>
+    <View className="recommend" style='margin:5px 10px;'>
       <Text>推荐歌单</Text>
       <ScrollView className='reco_list' style={scrollStyle} scrollX enableFlex='true'>
       {
@@ -17,7 +17,8 @@ export default function Recommend(props) {
           <View style='width:90px;display:inline-block;margin-right:10px'>
             <Image src={item.picUrl} style='width: 90px;height: 90px;background: #fff;border-radius:5%'/>
             <View style='font-size:11px;overflow: hidden;text-overflow: ellipsis;
-              display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;white-space:nomal'>
+              display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
+              white-space:nomal;'>
               {item.name}
             </View>
           </View>

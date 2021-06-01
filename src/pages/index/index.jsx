@@ -4,8 +4,9 @@ import Taro from '@tarojs/taro'
 import './index.css'
 import http from '../../servers/http'
 import { AtDivider } from 'taro-ui'
-import Recommend from './Recommend'
-import Ball from './ball'
+import Recommend from './components/Recommend'
+import Ball from './components/ball'
+import RecoMusic from './components/recoMusic'
 import TabBar from '../../components/TabBar/tabBar'
 
 
@@ -17,6 +18,7 @@ export default class Index extends Component {
       num: 0,
       current: 0,
       ballList: [],
+      recoMusic: [],
     }
   }
 
@@ -35,6 +37,13 @@ export default class Index extends Component {
         ballList: res.data
       })
     })
+
+    http.get('/personalized/newsong?limit=12').then(res => {
+      this.setState({
+        recoMusic: res.result
+      })
+    })
+
   }
 
   componentWillUnmount () { }
@@ -52,6 +61,7 @@ export default class Index extends Component {
         <Ball ballList={this.state.ballList}/>
         {/* <AtDivider/> */}
         <Recommend recommend_list={this.state.recommend_list}/>
+        <RecoMusic music_list={this.state.recoMusic}/>
         <TabBar current={this.state.current}/>
       </View>
     )

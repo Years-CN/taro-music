@@ -1,0 +1,36 @@
+.recoMusic {
+  padding: 20px 25px;
+  margin-bottom: 20px; 
+  border-radius: 30px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: white;
+  .reco_title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+  }
+  .reco_item {
+    display: flex;
+    width: 700px;
+    margin: 10px 0;
+    overflow: visible;
+    .reco_img {
+      width: 110px;
+      height: 110px;
+      border-radius: 20px;
+    }
+    .reco_name {
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+      .song_name {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      .song_artists {
+        font-size: 0.7rem;
+        color: gray;
+      }
+    }
+  }
+}

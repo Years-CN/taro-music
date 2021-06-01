@@ -4,7 +4,7 @@ import "./ball.scss"
 export default function Ball(props) {
   const scrollStyle = {
     display: 'flex',
-    height: '80px',
+    height: '75px',
     margin: '5px 0 1px 0'
   }
 

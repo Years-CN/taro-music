@@ -53,6 +53,9 @@ export default class Index extends Component {
   componentDidHide () { }
 
   render () {
+    const m_list = this.state.recoMusic;
+    const musics = [m_list.slice(0,3),m_list.slice(3,6),m_list.slice(6,9),m_list.slice(9,12)];
+
     return (
       <View className='index'>
         <View className="header">
@@ -61,7 +64,7 @@ export default class Index extends Component {
         <Ball ballList={this.state.ballList}/>
         {/* <AtDivider/> */}
         <Recommend recommend_list={this.state.recommend_list}/>
-        <RecoMusic music_list={this.state.recoMusic}/>
+        <RecoMusic music_list={musics}/>
         <TabBar current={this.state.current}/>
       </View>
     )

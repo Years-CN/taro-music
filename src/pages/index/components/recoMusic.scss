@@ -9,27 +9,34 @@
     font-weight: 600;
     margin: 10px 0 10px 0;
   }
-  .reco_item {
+  .swiperItem {
     display: flex;
-    width: 700px;
-    margin: 10px 0;
-    overflow: visible;
-    .reco_img {
-      width: 110px;
-      height: 110px;
-      border-radius: 20px;
+    flex-direction: column;
+    .reco_item:not(:nth-child(3n)) .reco_name {
+      border-bottom: 0.5px solid gainsboro;
     }
-    .reco_name {
+    .reco_item {
       display: flex;
-      align-items: center;
-      margin-left: 30px;
-      .song_name {
-        font-size: 1.1rem;
-        font-weight: 500;
+      width: 700px;
+      margin: 8px 0;
+      .reco_img {
+        width: 105px;
+        height: 105px;
+        border-radius: 15px;
       }
-      .song_artists {
-        font-size: 0.7rem;
-        color: gray;
+      .reco_name {
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+        width: 75%;
+        .song_name {
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
+        .song_artists {
+          font-size: 0.7rem;
+          color: gray;
+        }
       }
     }
   }

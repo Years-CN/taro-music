@@ -8,6 +8,7 @@ import Recommend from './components/Recommend'
 import Ball from './components/ball'
 import RecoMusic from './components/recoMusic'
 import TabBar from '../../components/TabBar/tabBar'
+import RecoMv from './components/recoMv'
 
 
 export default class Index extends Component {
@@ -19,6 +20,8 @@ export default class Index extends Component {
       current: 0,
       ballList: [],
       recoMusic: [],
+      recoMv: [],
+      recoMvUrl: [],
     }
   }
 
@@ -44,6 +47,28 @@ export default class Index extends Component {
       })
     })
 
+    // http.get('/personalized/mv').then(res => {
+    //   this.setState({
+    //     recoMv: res.result
+    //   })
+    //   // console.log(this.state.recoMv);
+    //   const list = this.state.recoMv;
+    //   list.map((item) => {
+    //     http.get(`/mv/url?id=${item.id}`).then(res => {
+    //       let copyUrl = this.state.recoMvUrl;
+    //       let nameUrl = {
+    //         name: item.name,
+    //         url: res.data.url,
+    //         pic: item.picUrl,
+    //       };
+    //       copyUrl.push(nameUrl);
+    //       this.setState({
+    //         recoMvUrl: copyUrl
+    //       })
+    //     })
+    //     // console.log(this.state.recoMvUrl);
+    //   })
+    // })
   }
 
   componentWillUnmount () { }
@@ -65,6 +90,7 @@ export default class Index extends Component {
         {/* <AtDivider/> */}
         <Recommend recommend_list={this.state.recommend_list}/>
         <RecoMusic music_list={musics}/>
+        {/* <RecoMv mvUrl={this.state.recoMvUrl}/> */}
         <TabBar current={this.state.current}/>
       </View>
     )

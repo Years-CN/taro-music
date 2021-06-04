@@ -5,13 +5,13 @@ import './Recommend.scss'
 export default function Recommend(props) {
   const scrollStyle = {
     display: 'flex',
-    height: '130px',
+    height: '260rpx',
     margin: '5px 0'
   }
   return (
     <View className="recommend" style=''>
       <View className="reco_title">
-        <Text>推荐歌单</Text>
+        <Text>{props.title}</Text>
         <Text className="more">更多&gt;</Text>
       </View>
       <ScrollView className='reco_list' style={scrollStyle} scrollX enableFlex='true'>
@@ -27,7 +27,5 @@ export default function Recommend(props) {
       }
       </ScrollView>
     </View>
-    
-    
   );
 }

@@ -26,7 +26,7 @@ export default function TabBar(props) {
   }
 
   return (
-    <View className='tabBar'>
+    <View className='tabBar' style="padding:0">
       <AtTabBar
         fixed
         tabList={[

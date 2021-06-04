@@ -5,7 +5,7 @@ export default function RecoMusic(props) {
   return (
     <View className="recoMusic">
       <View className="reco_title">推荐音乐</View>
-      <Swiper style="height:180px">
+      <Swiper style="height:350rpx">
         {
           props.music_list.map((item, index) => 
             <SwiperItem key={index} className="swiperItem">

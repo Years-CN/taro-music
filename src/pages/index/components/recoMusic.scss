@@ -8,6 +8,17 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin: 10px 0 10px 0;
+    .more {
+      font-size: 0.8rem;
+      font-weight: 300;
+      width: 100px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid gainsboro;
+      border-radius: 30px;
+      float: right;
+    }
   }
   .swiperItem {
     display: flex;

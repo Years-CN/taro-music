@@ -15,7 +15,7 @@ export default class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      recommend_list: [{1:2}],
+      recommend_list: [],
       num: 0,
       current: 0,
       ballList: [],
@@ -30,11 +30,12 @@ export default class Index extends Component {
   componentWillMount () { }
 
   componentDidMount () {
-    this.getRecommendList();
+    // this.getRecommendList();
     this.getBall();
-    this.getRecoSong();
-    this.getRecoDj();
-    this.getRecoProgram();
+    // this.getRecoSong();
+    // this.getRecoDj();
+    // this.getRecoProgram();
+    this.getIndexData();
   }
   //获取推荐歌单
   getRecommendList() {
@@ -76,6 +77,22 @@ export default class Index extends Component {
       })
     })
   }
+  //获取首页数据
+  async getIndexData() {
+    const res = await http.get('/homepage/block/page')
+    
+      // console.log(res);
+      const data = res.data.blocks;
+      this.setState({
+        recommend_list: data[1],
+        recoMusic: data[2],
+        recoMv: data[3],
+        recoDj: data[10],
+        recoProgram: data[11],
+      })
+      console.log(data[1]);
+    
+  }
   //获取推荐MV
   // getRecoMv() {
   //   http.get('/personalized/mv').then(res => {
@@ -109,9 +126,9 @@ export default class Index extends Component {
   componentDidHide () { }
 
   render () {
-    const m_list = this.state.recoMusic;
-    const musics = [m_list.slice(0,3),m_list.slice(3,6),m_list.slice(6,9),m_list.slice(9,12)];
-
+    // const m_list = this.state.recoMusic;
+    // const musics = [m_list.slice(0,3),m_list.slice(3,6),m_list.slice(6,9),m_list.slice(9,12)];
+    console.log(this.state.recommend_list);
     return (
       <View className='index' style="padding-bottom:130rpx">
         <View className="header">
@@ -119,10 +136,10 @@ export default class Index extends Component {
         </View>
         <Ball ballList={this.state.ballList}/>
         <Recommend title="推荐歌单" recommend_list={this.state.recommend_list}/>
-        <RecoMusic music_list={musics}/>
-        <Recommend title="推荐电台" recommend_list={this.state.recoDj}/>
-        <RecoProgram recoProgram={this.state.recoProgram}/>
-        {/* <RecoMv mvUrl={this.state.recoMvUrl}/> */}
+        <RecoMusic music_list={this.state.recoMusic}/>
+        <RecoProgram recoDj={this.state.recoDj}/>  
+        <Recommend title="推荐视频" recommend_list={this.state.recoProgram}/>
+        {/* <RecoMv mvUrl={this.state.recoMvUrl}/>*/}
         <TabBar current={this.state.current}/>
       </View>
     )

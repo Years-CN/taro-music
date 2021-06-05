@@ -8,19 +8,22 @@ export default function Recommend(props) {
     height: '260rpx',
     margin: '5px 0'
   }
+  if(!props.recommend_list.creatives) {
+    return(<View></View>); 
+  }
   return (
     <View className="recommend" style=''>
       <View className="reco_title">
-        <Text>{props.title}</Text>
+        <Text>{props.recommend_list.uiElement.subTitle.title}</Text>
         <Text className="more">更多&gt;</Text>
       </View>
       <ScrollView className='reco_list' style={scrollStyle} scrollX enableFlex='true'>
       {
-        props.recommend_list.map(item => 
+        props.recommend_list.creatives.map(item => 
           <View className="recommend_item" style=''>
-            <Image className="recommend_img" src={item.picUrl} style=''/>
+            <Image className="recommend_img" src={item.uiElement.image.imageUrl} style=''/>
             <View className="reco_itemName" style=''>
-              {item.name}
+              {item.uiElement.mainTitle.title}
             </View>
           </View>
         )

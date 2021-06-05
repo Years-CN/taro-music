@@ -2,21 +2,27 @@ import { View, Swiper, SwiperItem, Image, Text } from '@tarojs/components'
 import './recoMusic.scss'
 
 export default function RecoMusic(props) {
+  if(!props.music_list.creatives) {
+    return(<View></View>); 
+  }
   return (
     <View className="recoMusic">
-      <View className="reco_title">推荐音乐</View>
+      <View className="reco_title">
+        <Text>推荐音乐</Text>
+        <Text className="more">播放</Text>
+      </View>
       <Swiper style="height:350rpx">
         {
-          props.music_list.map((item, index) => 
+          props.music_list.creatives.map((item, index) => 
             <SwiperItem key={index} className="swiperItem">
               {
-                item.map((i, idx) => 
+                item.resources.map((i, idx) => 
                   <View className="reco_item" key={idx}>
-                    <Image className="reco_img" src={i.picUrl}/>
+                    <Image className="reco_img" src={i.uiElement.image.imageUrl}/>
                     <View className="reco_name">
                       <View>
-                        <Text className="song_name">{i.name}</Text>
-                        <Text className="song_artists">  -{i.song.artists[0].name}</Text>
+                        <Text className="song_name">{i.uiElement.mainTitle.title}</Text>
+                        <Text className="song_artists">  - {i.resourceExtInfo.artists[0].name}</Text>
                       </View>
                     </View>
                   </View>

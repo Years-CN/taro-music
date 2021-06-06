@@ -8,7 +8,7 @@ import Ball from './components/ball'
 import RecoMusic from './components/recoMusic'
 import TabBar from '../../components/TabBar/tabBar'
 import RecoProgram from './components/recoProgram'
-// import RecoMv from './components/recoMv'
+import RecoMv from './components/recoMv'
 
 
 export default class Index extends Component {
@@ -93,29 +93,24 @@ export default class Index extends Component {
       console.log(data[1]);
     
   }
-  //获取推荐MV
+  // 获取推荐MV
   // getRecoMv() {
-  //   http.get('/personalized/mv').then(res => {
-  //     this.setState({
-  //       recoMv: res.result
-  //     })
-  //     // console.log(this.state.recoMv);
-  //     const list = this.state.recoMv;
-  //     list.map((item) => {
-  //       http.get(`/mv/url?id=${item.id}`).then(res => {
-  //         let copyUrl = this.state.recoMvUrl;
-  //         let nameUrl = {
-  //           name: item.name,
-  //           url: res.data.url,
-  //           pic: item.picUrl,
-  //         };
-  //         copyUrl.push(nameUrl);
-  //         this.setState({
-  //           recoMvUrl: copyUrl
-  //         })
+  //   // console.log(this.state.recoMv);
+  //   const list = this.state.recoMv.extInfo;
+  //   list.map((item) => {
+  //     http.get(`/mlog/url?id=${item.id}`).then(res => {
+  //       let copyUrl = this.state.recoMvUrl;
+  //       let nameUrl = {
+  //         name: item.name,
+  //         url: res.data.url,
+  //         pic: item.picUrl,
+  //       };
+  //       copyUrl.push(nameUrl);
+  //       this.setState({
+  //         recoMvUrl: copyUrl
   //       })
-  //       // console.log(this.state.recoMvUrl);
   //     })
+  //     console.log(this.state.recoMvUrl);
   //   })
   // }
 
@@ -139,7 +134,7 @@ export default class Index extends Component {
         <RecoMusic music_list={this.state.recoMusic}/>
         <RecoProgram recoDj={this.state.recoDj}/>  
         <Recommend title="推荐视频" recommend_list={this.state.recoProgram}/>
-        {/* <RecoMv mvUrl={this.state.recoMvUrl}/>*/}
+        <RecoMv mvUrl={this.state.recoMv}/>
         <TabBar current={this.state.current}/>
       </View>
     )

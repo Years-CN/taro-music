@@ -6,17 +6,19 @@ export default function RecoMv(props) {
     display: 'flex',
 
   }
-
+  if(!props.mvUrl.extInfo) {
+    return(<View></View>); 
+  }
   console.log(props.mvUrl);
   return (
     <View className="recoMv">
       <ScrollView style={scrollStyle} scrollX enableFlex={true}>
         {
-          props.mvUrl.map((item, index) => 
+          props.mvUrl.extInfo.map((item, index) => 
             <View key={index}>
               <Video
                 style="width:120px;height:150px;margin:10px;border-radius:8px"
-                src={item.url}
+                src={item.resource.shareUrl}
                 controls={false}
                 autoplay={false}
                 poster={item.pic}

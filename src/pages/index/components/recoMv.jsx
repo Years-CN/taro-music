@@ -4,21 +4,21 @@ import './recoMv.scss'
 export default function RecoMv(props) {
   const scrollStyle = {
     display: 'flex',
-
+    height: '360rpx',
   }
-  if(!props.mvUrl.extInfo) {
+  if(!props.mvUrl) {
     return(<View></View>); 
   }
-  console.log(props.mvUrl);
+  console.log(props.mvUrl,132);
   return (
     <View className="recoMv">
+      <View className="reco_title">精选音乐视频</View>
       <ScrollView style={scrollStyle} scrollX enableFlex={true}>
         {
-          props.mvUrl.extInfo.map((item, index) => 
-            <View key={index}>
+          props.mvUrl.map((item, index) => 
+            <View key={index} className="reco_item">
               <Video
-                style="width:120px;height:150px;margin:10px;border-radius:8px"
-                src={item.resource.shareUrl}
+                src={item.url}
                 controls={false}
                 autoplay={false}
                 poster={item.pic}
@@ -26,8 +26,9 @@ export default function RecoMv(props) {
                 id='video'
                 loop={false}
                 muted={false}
+                objectFit={"fill"}
               />
-              <View>{item.name}</View>
+              <View className="item_name">{item.name}</View>
             </View>
           )
         }

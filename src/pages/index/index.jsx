@@ -90,29 +90,30 @@ export default class Index extends Component {
         recoDj: data[10],
         recoProgram: data[11],
       })
-      console.log(data[1]);
+      // console.log(data[1]);
+      this.getRecoMv();
     
   }
   // 获取推荐MV
-  // getRecoMv() {
-  //   // console.log(this.state.recoMv);
-  //   const list = this.state.recoMv.extInfo;
-  //   list.map((item) => {
-  //     http.get(`/mlog/url?id=${item.id}`).then(res => {
-  //       let copyUrl = this.state.recoMvUrl;
-  //       let nameUrl = {
-  //         name: item.name,
-  //         url: res.data.url,
-  //         pic: item.picUrl,
-  //       };
-  //       copyUrl.push(nameUrl);
-  //       this.setState({
-  //         recoMvUrl: copyUrl
-  //       })
-  //     })
-  //     console.log(this.state.recoMvUrl);
-  //   })
-  // }
+  getRecoMv() {
+    console.log(this.state.recoMv);
+    const list = this.state.recoMv.extInfo;
+    list.map((item) => {
+      http.get(`/mlog/url?id=${item.id}`).then(res => {
+        let copyUrl = this.state.recoMvUrl;
+        let nameUrl = {
+          name: item.resource.mlogBaseData.text,
+          url: res.data.resource.content.video.urlInfo.url,
+          pic: res.data.resource.content.video.coverUrl,
+        };
+        copyUrl.push(nameUrl);
+        this.setState({
+          recoMvUrl: copyUrl
+        })
+      })
+      // console.log(this.state.recoMvUrl);
+    })
+  }
 
   componentWillUnmount () { }
 
@@ -123,7 +124,7 @@ export default class Index extends Component {
   render () {
     // const m_list = this.state.recoMusic;
     // const musics = [m_list.slice(0,3),m_list.slice(3,6),m_list.slice(6,9),m_list.slice(9,12)];
-    console.log(this.state.recommend_list);
+    
     return (
       <View className='index' style="padding-bottom:130rpx">
         <View className="header">
@@ -134,7 +135,7 @@ export default class Index extends Component {
         <RecoMusic music_list={this.state.recoMusic}/>
         <RecoProgram recoDj={this.state.recoDj}/>  
         <Recommend title="推荐视频" recommend_list={this.state.recoProgram}/>
-        <RecoMv mvUrl={this.state.recoMv}/>
+        <RecoMv mvUrl={this.state.recoMvUrl}/>
         <TabBar current={this.state.current}/>
       </View>
     )

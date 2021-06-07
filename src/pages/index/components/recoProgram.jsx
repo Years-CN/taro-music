@@ -10,7 +10,7 @@ export default function RecoDj(props) {
   if(!props.recoDj.creatives) {
     return(<View></View>); 
   }
-  console.log(props)
+  // console.log(props)
   return (
     <View className="recoDj">
       <View className="reco_title">{props.recoDj.uiElement.subTitle.title}</View>

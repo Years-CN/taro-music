@@ -9,7 +9,7 @@ import RecoMusic from './components/recoMusic'
 import TabBar from '../../components/TabBar/tabBar'
 import RecoProgram from './components/recoProgram'
 import RecoMv from './components/recoMv'
-
+import Banner from './components/banner'
 
 export default class Index extends Component {
   constructor(props) {
@@ -24,6 +24,7 @@ export default class Index extends Component {
       recoMvUrl: [],
       recoDj: [],
       recoProgram: [],
+      banner: [],
     }
   }
 
@@ -80,19 +81,16 @@ export default class Index extends Component {
   //获取首页数据
   async getIndexData() {
     const res = await http.get('/homepage/block/page')
-    
-      // console.log(res);
-      const data = res.data.blocks;
-      this.setState({
-        recommend_list: data[1],
-        recoMusic: data[2],
-        recoMv: data[3],
-        recoDj: data[10],
-        recoProgram: data[11],
-      })
-      // console.log(data[1]);
-      this.getRecoMv();
-    
+    const data = res.data.blocks;
+    this.setState({
+      banner: data[0],
+      recommend_list: data[1],
+      recoMusic: data[2],
+      recoMv: data[3],
+      recoDj: data[10],
+      recoProgram: data[11],
+    })
+    this.getRecoMv();
   }
   // 获取推荐MV
   getRecoMv() {
@@ -130,6 +128,7 @@ export default class Index extends Component {
         <View className="header">
           <Text></Text>
         </View>
+        <Banner banner_list={this.state.banner}/>
         <Ball ballList={this.state.ballList}/>
         <Recommend title="推荐歌单" recommend_list={this.state.recommend_list}/>
         <RecoMusic music_list={this.state.recoMusic}/>

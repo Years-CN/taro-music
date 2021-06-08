@@ -5,7 +5,6 @@ export default function Ball(props) {
   const scrollStyle = {
     display: 'flex',
     height: '75px',
-    margin: '5px 0 1px 0'
   }
 
   return (

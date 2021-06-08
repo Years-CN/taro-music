@@ -4,12 +4,11 @@ import './recoMv.scss'
 export default function RecoMv(props) {
   const scrollStyle = {
     display: 'flex',
-    height: '360rpx',
+    height: '340rpx',
   }
   if(!props.mvUrl) {
     return(<View></View>); 
   }
-  console.log(props.mvUrl,132);
   return (
     <View className="recoMv">
       <View className="reco_title">精选音乐视频</View>
@@ -22,6 +21,7 @@ export default function RecoMv(props) {
                 controls={false}
                 autoplay={false}
                 poster={item.pic}
+                showCenterPlayBtn={false}
                 initialTime='0'
                 id='video'
                 loop={false}

@@ -1,3 +1,4 @@
+@import '../../../base.scss';
 .recoMusic {
   padding: 20px 25px;
   margin-bottom: 20px; 
@@ -5,7 +6,7 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   background-color: white;
   .reco_title {
-    font-size: 1.1rem;
+    font-size: $title-size;
     font-weight: 600;
     margin: 10px 0 10px 0;
     .more {

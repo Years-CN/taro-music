@@ -133,9 +133,9 @@ export default class Index extends Component {
         <Ball ballList={this.state.ballList}/>
         <Recommend title="推荐歌单" recommend_list={this.state.recommend_list}/>
         <RecoMusic music_list={this.state.recoMusic}/>
+        <RecoMv mvUrl={this.state.recoMvUrl}/>
         <RecoProgram recoDj={this.state.recoDj}/>  
         <Recommend title="推荐视频" recommend_list={this.state.recoProgram}/>
-        <RecoMv mvUrl={this.state.recoMvUrl}/>
         <TabBar current={this.state.current}/>
       </View>
     )

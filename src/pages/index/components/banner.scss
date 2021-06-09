@@ -1,9 +1,37 @@
 .banner {
   background-color: white;
-  padding: 30px; 
-  Image {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+  padding: 12px 0;
+  .swiper {
+    height: 250px;
+    .swiperItem {
+      display: flex;
+      justify-content: center;
+      .bannerItem {
+        width: 93%;
+        position: relative;
+        Image {
+          width: 100%;
+          height: 100%;
+          border-radius: 15px;
+        }
+        .typeTitle {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          color: white;
+          opacity: 0.9;
+          text-align: center;
+          padding: 10px 15px;
+          font-size: 22px;
+          border-radius: 20px 0 15px 0; 
+        }
+        .blue {
+          background-color: #2196F3;
+        }
+        .red {
+          background-color: #ff0202;
+        }
+      }
+    }
   }
 }

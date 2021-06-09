@@ -9,11 +9,19 @@ export default function Banner(props) {
   }
   return (
     <View className='banner'>
-      <Swiper autoplay={true}>
+      <Swiper 
+        className="swiper"
+        autoplay={true}
+        indicatorDots={true}
+        circular={true}
+      >
         {
           props.banner_list.extInfo.banners.map((item, index) => 
-            <SwiperItem key={index}>
-              <Image src={item.pic}/>
+            <SwiperItem key={index} className="swiperItem">
+              <View className="bannerItem">
+                <Image src={item.pic}/>
+                <View className={`typeTitle ${item.titleColor}`}>{item.typeTitle}</View>
+              </View>
             </SwiperItem>
           )
         }

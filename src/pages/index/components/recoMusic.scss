@@ -41,13 +41,20 @@
         align-items: center;
         margin-left: 30px;
         width: 75%;
-        .song_name {
-          font-size: 1.1rem;
-          font-weight: 500;
-        }
-        .song_artists {
-          font-size: 0.7rem;
-          color: gray;
+        .reco_song {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          white-space:normal;
+          .song_name {
+            font-weight: 500;
+          }
+          .song_artists {
+            font-size: 0.7rem;
+            color: gray;
+          }
         }
       }
     }

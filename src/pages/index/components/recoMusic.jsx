@@ -20,7 +20,7 @@ export default function RecoMusic(props) {
                   <View className="reco_item" key={idx}>
                     <Image className="reco_img" src={i.uiElement.image.imageUrl}/>
                     <View className="reco_name">
-                      <View>
+                      <View className="reco_song">
                         <Text className="song_name">{i.uiElement.mainTitle.title}</Text>
                         <Text className="song_artists">  - {i.resourceExtInfo.artists[0].name}</Text>
                       </View>

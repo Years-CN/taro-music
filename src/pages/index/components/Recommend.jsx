@@ -1,4 +1,5 @@
 import { View, Image, Text, ScrollView } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import './Recommend.scss'
 
 
@@ -8,6 +9,14 @@ export default function Recommend(props) {
     height: '260rpx',
     margin: '5px 0'
   }
+
+  function goTo(item) {
+    console.log(item);
+    Taro.navigateTo({
+      url: `/pages/listDetail/index?id=${item.resourceId}`
+    });
+  }
+
   if(!props.recommend_list.creatives) {
     return(<View></View>); 
   }
@@ -20,7 +29,7 @@ export default function Recommend(props) {
       <ScrollView className='reco_list' style={scrollStyle} scrollX enableFlex='true'>
       {
         props.recommend_list.creatives.map(item => 
-          <View className="recommend_item" style=''>
+          <View className="recommend_item" style='' onClick={ () => goTo(item.resources[0])}>
             <Image className="recommend_img" src={item.uiElement.image.imageUrl} style=''/>
             <View className="reco_itemName" style=''>
               {item.uiElement.mainTitle.title}

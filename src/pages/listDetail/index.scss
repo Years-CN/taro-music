@@ -1,9 +1,21 @@
 .list_detail {
-  background-color: gainsboro;
+  // background-color: gainsboro;
+  .info::after {
+    content: '';  
+    width: 240%;  
+    height: 400px;  
+    position: absolute;  
+    left: -70%;  
+    top: 0;  
+    z-index: -1;  
+    border-radius: 0 0 50% 50%;  
+    background-image: linear-gradient(#D1D5DB, #9CA3AF,#6B7280);
+    }
   .info {
-    padding: 30px 30px;
+    padding: 50px 30px 50px 30px;
+    position: relative;
     display: flex;
-    background-image: linear-gradient(#e66465, #9198e5);
+    // background-image: linear-gradient(#e66465, #9198e5);
     .info_img {
       width: 250px;
       height: 250px;

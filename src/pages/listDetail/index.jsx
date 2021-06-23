@@ -22,8 +22,14 @@ export default function ListDetail(props) {
         info.length === 0 ? "" : 
         <View className="info"> 
           <Image src={info.playlist.coverImgUrl} className="info_img"/>
-          <View className="info_name">
-            {info.playlist.name}
+          <View className="info_detail">
+            <View className="info_name">
+              {info.playlist.name}
+            </View>
+            <View className="avatar">
+              <Image src={info.playlist.creator.avatarUrl} className="avatar_img"/>
+              <View className="avatar_name">{info.playlist.creator.nickname}</View>
+            </View>
           </View>
         </View>
       }

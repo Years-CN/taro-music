@@ -9,7 +9,7 @@
     top: 0;  
     z-index: -1;  
     border-radius: 0 0 50% 50%;  
-    background-image: linear-gradient(#D1D5DB, #9CA3AF,#6B7280);
+    background-image: linear-gradient(#e66465, #9198e5);
     }
   .info {
     padding: 50px 30px 50px 30px;
@@ -23,9 +23,20 @@
       margin-right: 30px;
     }
     .info_detail {
+      flex: 60%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       .info_name {
-        width: 350px;
+        width: 100%;
+        font-size: 1rem;
         color: #F3F4F6;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space:normal;
       }
       .avatar {
         margin: 20px 0;
@@ -39,10 +50,21 @@
         }
         .avatar_name {
           font-size: 0.8rem;
+          color: gainsboro;
           text-align: center;
         }
       }
-      
+      .info_description {
+        color: brown;
+        font-weight: 600;
+        font-size: 0.8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        white-space:normal;
+      }
     }
     
   }

@@ -1,5 +1,5 @@
 import { View, Image } from '@tarojs/components'
-import { getCurrentInstance } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import http from '../../servers/http'
 import './index.scss'
@@ -8,7 +8,11 @@ export default function ListDetail(props) {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    http.get(`/playlist/detail?id=${getCurrentInstance().router.params.id}`).then(res => {
+    Taro.setNavigationBarTitle({
+      title: '歌单'
+    })
+    
+    http.get(`/playlist/detail?id=${Taro.getCurrentInstance().router.params.id}`).then(res => {
       console.log(res);
       setInfo(res);
     }) 
@@ -18,6 +22,9 @@ export default function ListDetail(props) {
 
   return (
     <View className="list_detail">
+      <header>
+        
+      </header>
       {
         info.length === 0 ? "" : 
         <View className="info"> 
@@ -29,6 +36,9 @@ export default function ListDetail(props) {
             <View className="avatar">
               <Image src={info.playlist.creator.avatarUrl} className="avatar_img"/>
               <View className="avatar_name">{info.playlist.creator.nickname}</View>
+            </View>
+            <View className="info_description">
+              {info.playlist.description}
             </View>
           </View>
         </View>

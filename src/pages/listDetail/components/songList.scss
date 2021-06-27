@@ -1,0 +1,66 @@
+@import "~taro-ui/dist/style/components/icon.scss";
+.song_list {
+  // padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  .play_all {
+    display: flex;
+    margin-bottom: 20px;
+    .play_icon {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+  }
+  .song {
+    display: flex;
+    margin: 12px 0;
+    .song_index {
+      // font-size: 1.2rem;
+      color: gray;
+      text-align: center;
+      height: 100px;
+      line-height: 100px;
+      width: 100px;
+    }
+    .song_info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 520px;
+      .song_name {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        text-overflow: ellipsis;
+        line-clamp: 1;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .ar {
+        font-size: 0.8rem;
+        color: gray;
+        text-overflow: ellipsis;
+        line-clamp: 1;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 15px;
+      // line-height: 50px;
+      // height: 50px;
+      // width: 50px;
+      // text-align: center;
+      // border: 1px solid gray;
+      // border-radius: 50%;
+    }
+  }
+}

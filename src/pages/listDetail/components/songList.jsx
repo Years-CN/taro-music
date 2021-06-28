@@ -1,5 +1,4 @@
 import { View } from '@tarojs/components'
-import { useEffect } from 'react'
 import './songList.scss'
 import { AtIcon } from 'taro-ui'
 
@@ -12,8 +11,6 @@ export default function SongList(props) {
       return i = i.name.slice(i.name.indexOf('/') + 1) + ' - ' + item.name;  
     }
   )
-  console.log(props.list);
-  console.log(nameList);
 
   return (
     <View className="song_list">

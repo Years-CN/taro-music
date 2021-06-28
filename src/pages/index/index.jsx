@@ -7,6 +7,7 @@ import Recommend from './components/Recommend'
 import Ball from './components/ball'
 import RecoMusic from './components/recoMusic'
 import TabBar from '../../components/TabBar/tabBar'
+import Play from '../../components/Play/play'
 import RecoProgram from './components/recoProgram'
 import RecoMv from './components/recoMv'
 import Banner from './components/banner'
@@ -135,6 +136,7 @@ export default class Index extends Component {
         <RecoMv mvUrl={this.state.recoMvUrl}/>
         <RecoProgram recoDj={this.state.recoDj}/>  
         <Recommend title="推荐视频" recommend_list={this.state.recoProgram}/>
+        <Play />
         <TabBar current={this.state.current}/>
       </View>
     )

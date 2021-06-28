@@ -7,20 +7,15 @@ import SongList from './components/songList'
 
 export default function ListDetail(props) {
   const [info, setInfo] = useState([]);
-  const [list, setList] = useState([]);
+
+  Taro.setNavigationBarTitle({
+    title: '歌单'
+  })
 
   useEffect(() => {
-    Taro.setNavigationBarTitle({
-      title: '歌单'
-    })
-    
     http.get(`/playlist/detail?id=${Taro.getCurrentInstance().router.params.id}`).then(res => {
-      console.log(res);
       setInfo(res);
-      setList(res.playlist.tracks);
       return res;
-    }).then(res => {
-
     })
   }, [])
 
@@ -52,8 +47,6 @@ export default function ListDetail(props) {
           <SongList list={info.playlist.tracks}/>
         </>
       }
-      
-      
     </View>
   )
 }

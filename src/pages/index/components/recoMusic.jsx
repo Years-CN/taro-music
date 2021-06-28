@@ -5,6 +5,14 @@ export default function RecoMusic(props) {
   if(!props.music_list.creatives) {
     return(<View></View>); 
   }
+
+  function goTo(item) {
+    console.log(item);
+    Taro.navigateTo({
+      url: `/pages/listDetail/index?id=${item.resourceId}`
+    });
+  }
+
   return (
     <View className="recoMusic">
       <View className="reco_title">
@@ -17,7 +25,7 @@ export default function RecoMusic(props) {
             <SwiperItem key={index} className="swiperItem">
               {
                 item.resources.map((i, idx) => 
-                  <View className="reco_item" key={idx}>
+                  <View className="reco_item" key={idx} onClick={() => goTo(i)}>
                     <Image className="reco_img" src={i.uiElement.image.imageUrl}/>
                     <View className="reco_name">
                       <View className="reco_song">
